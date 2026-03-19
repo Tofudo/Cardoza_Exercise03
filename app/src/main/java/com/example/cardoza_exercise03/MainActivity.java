@@ -2,6 +2,7 @@ package com.example.cardoza_exercise03;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,6 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Define a constant TAG for this Activity
+    private static final String TAG = "MainActivityLog";
     Button myButton;
     EditText etName;
 
@@ -22,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        Log.d(TAG, "onCreate method has successfully started.");
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -34,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         myButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.i(TAG, "The user clicked the button!");
                 String name = etName.getText().toString();
                 Intent intent = new Intent(MainActivity.this, GreetingActivity.class);
                 intent.putExtra("USER_NAME", name); // "USER_NAME" is the key

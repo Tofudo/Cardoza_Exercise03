@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cardoza_Exercise03">
         <activity
+            android:name=".GreetingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
